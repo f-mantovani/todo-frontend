@@ -21,7 +21,7 @@ class Api {
 			}
 		)
 	}
-
+	// ============ Auth Routes ===============
 	signup(body) {
 		return this.api.post('/auth/signup', body)
 	}
@@ -32,6 +32,23 @@ class Api {
 
 	verify() {
 		return this.api.get('/auth/verify')
+	}
+
+	// ============ To do Routes ===============
+	getAllTodos() {
+		return this.api.get('/todo')
+	}
+
+	createTodo(newTodoText) {
+		return this.api.post('/todo', newTodoText)
+	}
+
+	updateTodo(id, updateData) {
+		return this.api.put(`/todo/${id}`, updateData)
+	}
+
+	deleteTodo(id) {
+		return this.api.delete(`/todo/${id}`)
 	}
 }
 
